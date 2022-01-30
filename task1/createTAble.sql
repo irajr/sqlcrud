@@ -1,0 +1,76 @@
+
+--Customer
+--INSERT
+EXEC GenCrud
+@CHOICE = 'INSERT',
+@CID = 2,
+@CNAME = 'John',
+@CEMAIL = 'John@gmail.com',
+@CADDRESS = 'AT AND POST SARKHEJ',
+@CCITY = 'AHMEDEBAD',
+@CSTATE = 'GUJARAT',
+@CGENDER= 'Male',
+@CRECORD = '2022-01-26'
+
+--UPDATE
+EXEC GenCrud
+@CHOICE = 'UPDATE',
+@CID = 1,
+@CNAME = 'RAJ Sharma',
+@CEMAIL = 'srajrwd@gmail.com',
+@CADDRESS = 'AT AND POST AHMEDABAD',
+@CCITY = 'AHMEDABAD'
+,@CSTATE = 'GUJARAT',
+@CGENDER= 'Male',
+@CRECORD = '2022-01-29'
+
+--DELETE
+EXEC GenCrud
+@CID = 1,
+@CHOICE = 'DELETE'
+
+SELECT * FROM gencustomers
+
+
+--CATEGORY
+--INSERT
+EXEC GenCrudCat
+	@CHOICE = 'INSERT',
+	@CATID = 4,
+	@CATNAME = 'MOBILE'
+--UPDATE
+EXEC GenCrudCat
+	@CHOICE = 'UPDATE',
+	@CATID = 4,
+	@CATNAME = 'MOBILEs'
+--DELETE
+EXEC GenCrudCat
+	@CHOICE = 'DELETE',
+	@CATID = 4
+
+SELECT * FROM gencategory
+
+
+--ORDERS
+--INSERT
+EXEC GenCrudOrders
+	@CHOICE = 'INSERT',
+	@OID = 1,
+	@ORDERDATE  = '2022-01-28',
+	@ORDERNUMBER = '202201281',
+	@CUSTOMERID = 1,
+	 @CUSTOMERCATEGORYID = 2
+--UPDATE
+EXEC GenCrudOrders
+	@CHOICE = 'UPDATE',
+	@OID = 1,
+	@ORDERDATE  = '2022-01-30',
+	@ORDERNUMBER = '202201301',
+	@CUSTOMERID = 1,
+	 @CUSTOMERCATEGORYID = 2
+--DELETE
+EXEC GenCrudOrders
+	@CHOICE = 'DELETE',
+	@OID = 1
+
+SELECT * FROM genorders
